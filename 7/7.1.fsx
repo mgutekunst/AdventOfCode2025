@@ -51,10 +51,10 @@ let calculateBeam (beams: Cell list, splitCount: int) (currentRow: Cell[]) =
 
         let newSplitCount = splitCount + (newBeams.Length - beams.Length)
 
-        newBeams |> List.distinct, newSplitCount
+        newBeams, newSplitCount
 
-// let inputFile = "input.txt"
-let inputFile = "demoInput.txt"
+let inputFile = "input.txt"
+// let inputFile = "demoInput.txt"
 
 inputFile
 |> File.ReadAllLines
@@ -68,4 +68,4 @@ inputFile
                    Column = j
                    Type = CellType.OfChar c })))
     ([], 0)
-|> printfn "Result: %A"
+|> fun (v, i) -> printfn "tachyon paths: %i" v.Length
